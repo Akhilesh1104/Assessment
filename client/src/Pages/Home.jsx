@@ -46,7 +46,7 @@ const Home = () => {
         </div>
 
 
-    <div className='w-full max-w-6xl m-auto'>
+    <div className='w-full max-w-6xl m-auto mb-24'>
       <div className='bg-white border rounded text-sm max-h-[80vh] min-h-[60vh] overflow-y-scroll'>
         {
           data.map((item,index)=>(
