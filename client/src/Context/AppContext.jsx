@@ -56,7 +56,7 @@ const AppContextProvider = (props) => {
 
   const claimPoints = async (username) => {
     try {
-      const {data} = await axios.patch(backendUrl + '/user/v1/claim-points',{username})
+      const {data} = await axios.post(backendUrl + '/user/v1/claim-points',{username})
         if(data.success){
           toast.success(data.message);
           getTodayData();
