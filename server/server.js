@@ -7,21 +7,24 @@ import user from "./routes/user.route.js";
 // *********** All-Routes *************
 
 import cookieParser from "cookie-parser";
+const port = process.env.PORT || 7000;
+
 const app = express();
 // Use cors middleware
 app.use(cors());
 
-app.use(
-  cors({
-    origin: "https://assessment-frontend-psi.vercel.app", // Replace with the frontend's URL (React app)
-    methods: "GET,POST,PUT,DELETE,PATCH", // Allowed methods
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://assessment-frontend-psi.vercel.app", // Replace with the frontend's URL (React app)
+//     methods: "GET,POST,PUT,DELETE,PATCH", // Allowed methods
+//   })
+// );
+
 
 //middle wares
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(cookieParser());
 
 // *********** All-Routes *************
 
@@ -49,7 +52,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(7000, async () => {
+app.listen(port, async () => {
   console.log("Server is running on port 7000");
   await connectDb();
 });
