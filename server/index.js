@@ -4,23 +4,19 @@ import cors from "cors"
 // *********** All-Routes *************
 import auth from "./routes/auth.route.js";
 import user from "./routes/user.route.js";
-import "dotenv/config";
 // *********** All-Routes *************
 
 import cookieParser from "cookie-parser";
-const port = process.env.PORT || 7000;
-
 const app = express();
-connectDb();
 // Use cors middleware
 app.use(cors());
+
 app.use(
   cors({
     origin: "*", // Replace with the frontend's URL (React app)
-    methods: "GET,POST", // Allowed methods
+    methods: "GET,POST,PUT,DELETE,PATCH", // Allowed methods
   })
 );
-
 
 //middle wares
 app.use(express.json());
@@ -53,6 +49,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(port, async () => {
+app.listen(7000, async () => {
   console.log("Server is running on port 7000");
+  await connectDb();
 });
