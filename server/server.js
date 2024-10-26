@@ -16,7 +16,7 @@ connectDb();
 app.use(cors());
 app.use(
   cors({
-    origin: "https://assessment-frontend-psi.vercel.app", // Replace with the frontend's URL (React app)
+    origin: "*", // Replace with the frontend's URL (React app)
     methods: "GET,POST,PUT,DELETE,PATCH", // Allowed methods
   })
 );
